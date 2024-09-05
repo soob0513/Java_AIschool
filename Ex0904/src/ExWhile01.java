@@ -22,25 +22,32 @@ public class ExWhile01 {
 //			num = sc.nextInt();
 //		}
 		
+		
+		// 참고! Java의 포매팅
+		int number = 30;
+		System.out.printf("Test : %d", number);
+		System.out.println();
+		
 		// 실습
 		// A, B의 숫자를 입력받아 A-B를 계산하는 프로그램
 		// 단, 두 수가 모두 0이 입력되면 프로그램 종료
+//		Scanner sc = new Scanner(System.in);
+				
 		while (true) {
 			System.out.print("A 입력 >> ");
 			int a = sc.nextInt();
 			System.out.print("B 입력 >> ");
 			int b = sc.nextInt();
-			
+					
 			if (a == 0 && b == 0) {
 				System.out.println("종료 되었습니다.");
 				break;
 			}
-			
+					
 			System.out.println("결과 >> "+ (a-b));
 		}
-
 		
-
+		
 	}
 
 }
