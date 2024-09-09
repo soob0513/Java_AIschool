@@ -34,6 +34,10 @@ public class Ex메소드01 {
 		int result = num1 + num2;
 		return result;
 	}
+	// 메소드 오버로딩(중복정의) : 매개변수만 다르게 해서 같은 이름으로 다른 메소드를 만드는 방법
+	public static double add(double num1, double num2) {
+		return num1+num2;
+	}
 	
 	public static int minus(int num1, int num2) {
 		return num1 - num2;
