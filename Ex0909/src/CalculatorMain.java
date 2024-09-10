@@ -7,6 +7,8 @@ public class CalculatorMain {
 		
 		System.out.println("sum : " + cal.sum());
 		
+		cal.setNum1(75);
+		cal.setNum2(5);
 		
 		System.out.println("sub : " + cal.sub());
 		System.out.println("mul : " + cal.mul());
