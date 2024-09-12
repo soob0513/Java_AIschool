@@ -10,7 +10,14 @@ public class Folder extends Tel {
 	// --> 재정의!! -> 메소드 오버라이딩(상속 개념이 포함) -> 다형성
 	// 자식 클래스에서 오버라이딩 했다면 
 	// 부모 클래스에서 물려준 기능이 아닌 오버라이딩한 기능을 사용한다!
+	public void call() {
+		System.out.println("폴더폰으로 전화를 건다");
+	}
+	
 	public void button() {
+		// super : 자식클래스에서 부모 클래스를 가리킬 때 사용됨!
+//		super.call();  // 부모 --> 전화 걸기
+		this.call();   // 자식 --> 폴더폰으로 전화를 건다.
 		System.out.println("다이얼을 클릭해서 버튼을 누른다");
 	}
 	
