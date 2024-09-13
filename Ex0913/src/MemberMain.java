@@ -37,6 +37,10 @@ public class MemberMain {
 					
 					// 2. Connection 객체 생성 (DB 연결하는 객체)
 					Connection conn; 
+					
+					// 12505 에러가 나면 
+					// 1. C:\oraclexe\app\oracle\product\11.2.0\server\network\ADMIN >> 확인
+					// 2. 포트 번호 1521 -> 1522로 수정! 
 					String url = "jdbc:oracle:thin:@localhost:1522:xe";
 					String dbUser = "hr";
 					String dbPw = "hr";
