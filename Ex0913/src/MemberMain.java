@@ -154,13 +154,12 @@ public class MemberMain {
 			} else if (menu == 3) {
 				// 정보수정
 				// 1. 수정하고 싶은 회원의 ID 입력 받기
-				// 2. 어떤 NICK으로 바꿀건지 new Nick 입력받기
-				// 3. 입력한 ID를 가진 회원의 NICK 수정하기
 				System.out.print("ID입력 >> ");
-				String id = sc.next();
-
+				String inputId = sc.next();
+				
+				// 2. 어떤 NICK으로 바꿀건지 new Nick 입력받기
 				System.out.print("수정할 NICK 입력 >> ");
-				String nick = sc.next();
+				String inputNick = sc.next();
 
 				// 연결부
 				try {
@@ -170,30 +169,36 @@ public class MemberMain {
 					String dbUser = "hr";
 					String dbPw = "hr";
 
+					// conn 연결 정보 (Java와 DB 통로 정보)
 					conn = DriverManager.getConnection(url, dbUser, dbPw);
 
 					// 실행부
+					// 3. 입력한 ID를 가진 회원의 NICK 수정하기
 					String sql = "update member set NICK = ? where ID = ?";
 
+					// psmt : 통로 위에 올라가있는 Java 만들었던 쿼리문 정보
 					psmt = conn.prepareStatement(sql);
-					psmt.setString(1, nick);
-					psmt.setString(2, id);
+					
+					// 통로 위에 올라가있는 쿼리문에 데이터를 채워줌! 
+					psmt.setString(1, inputNick);
+					psmt.setString(2, inputId);
 
+					// 쿼리문 실행!
 					int row = psmt.executeUpdate();
 
+					// executeUpdate() --> 쿼리문을 통해 변경된 행의 개수를 반환 
+					// 쿼리문이 제대로 실행됐는지 확인
 					if (row > 0) {
 						System.out.println("닉네임 변경 성공");
 					} else {
 						System.out.println("닉네임 변경 실패");
 					}
 
-				} catch (SQLException e) {
+				}catch (Exception e){
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} finally {
+				}
+				finally {
 
 					try {
 						if (psmt != null)
